@@ -26,7 +26,7 @@ search.addEventListener('click', () => {
             error404.classList.remove('fadeIn');
 
             const image = document.querySelector('.weather-box img');
-            const tempetature = document.querySelector('.weather-box .tempetature');
+            const temperature = document.querySelector('.weather-box .temperature');
             const description = document.querySelector('.weather-box .description');
             const humidity = document.querySelector('.weather-details .humidity span');
             const wind = document.querySelector('.weather-details .wind span');
@@ -42,24 +42,24 @@ search.addEventListener('click', () => {
                     image.src = 'images/snow.png';
                     break;
                 case 'Clouds':
-                    image.src = 'images/clouds.png';
+                    image.src = 'images/cloud.png';
                     break;
                 case 'Haze':
-                    image.src = 'images/haze.png';
+                    image.src = 'images/mist.png';
                     break;
                 default:
-                    image.scr = '';
+                    image.src = '';
             }
 
-            tempetature.innerHTML = `${parseInt(json.main.tempetature)}<span>°C<span>`;
+            temperature.innerHTML = `${parseInt(json.main.temp)}<span>°C</span>`;
             description.innerHTML = `${json.weather[0].description}`;
             humidity.innerHTML = `${json.main.humidity}%`;
             wind.innerHTML = `${parseInt(json.wind.speed)}Km/h`;
 
             weatherBox.style.display = '';
             weatherDetails.style.display = '';
-            weatherBox.classList.add('dadeIn');
-            weatherDetails.classList.add('dadeIn');
+            weatherBox.classList.add('fadeIn');
+            weatherDetails.classList.add('fadeIn');
             container.style.height = '590px';
         });
 });
